@@ -9,11 +9,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../../static/css/home.css">
-    <!-- <style type="text/css">
-      td{
-        width: 15%;
-      }
-    </style> -->
+    <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+    <script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+      TeX: { equationNumbers: { autoNumber: &quot;AMS&quot; } }
+    });
+    </script>
+     
+    <script type='text/x-mathjax-config'> 
+    MathJax.Hub.Config({tex2jax: {inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\(&#39;,&#39;\)&#39;]]}}); </script> 
+     
+    <script src='http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG' type='text/javascript'> 
+    </script>
 </head>
 <body>
 	<nav class="navbar navbar-default menu">
@@ -23,8 +30,8 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav ul1">
-                <li><a href="chuyenmuc.php">Chuyen muc</a></li>
-                <li><a href="monhoc.php">Mon hoc</a></li>
+                <li><a href="chuyenmuc.php">Chuyên mục</a></li>
+                <li><a href="monhoc.php">Môn học</a></li>
               </ul>
               <form class="navbar-form navbar-left">
                 <div class="form-group">

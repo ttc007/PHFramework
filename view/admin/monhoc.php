@@ -3,10 +3,10 @@ include "admin.php";
 include "../../model/chuyenmucData.php";
 ?>
 <div class="container">
-	<h1>Mon hoc management</h1>
+	<h1>Môn học management</h1>
 	
 	<div class="panel panel-info">
-	<h3>Them mon hoc</h3>
+	<h3>Thêm môn học</h3>
 	<div class="panel-body">
 	<form action="?action=add" method="post">
 		Name<br><input type="text" name="name">
@@ -59,14 +59,16 @@ include "../../model/chuyenmucData.php";
 			if($action=="Save") {
 				$id=filter_input(INPUT_POST, 'id');
 				$name=filter_input(INPUT_POST, 'name');
-				$q="UPDATE chuyenmuc
-				SET name = :name
+				$chuyenmucID=filter_input(INPUT_POST, 'chuyenmucID');
+				$q="UPDATE monhoc
+				SET name = :name, chuyenmuc_id = :chuyenmucID
 				WHERE id=:id;";
 				$statement=$db->prepare($q);
 	            $statement->bindValue(':id',$id);
 	            $statement->bindValue(':name',$name);
+	            $statement->bindValue(':chuyenmucID',$chuyenmucID);
 	            $statement->execute();
-	            header("Location:chuyenmuc.php");
+	            header("Location:monhoc.php");
 			}
 			
 		?>
@@ -104,9 +106,16 @@ include "../../model/chuyenmucData.php";
 									$chuyenmucs=getChuyenmuc();
 									foreach ($chuyenmucs as $chuyenmuc) {
 								?>
+									<?php 
+										if($chuyenmuc[0]==$monhoc[2]) {
+									?>
+										<option value="<?php echo "$chuyenmuc[0]";?>" selected><?php echo $chuyenmuc[1]; ?></option>
+									<?php 
+									    } else {
+									?>
 										<option value="<?php echo "$chuyenmuc[0]";?>"><?php echo $chuyenmuc[1]; ?></option>
 								<?php
-									}
+									} }
 								?>
 							</select></td>
 						<td><input type="submit" name="action" value="Save">
@@ -116,20 +125,20 @@ include "../../model/chuyenmucData.php";
 					<?php
 						} else {
 					?>
-						<td><?php echo $monhoc[1]; ?></td>
+						
+						<td><a href="monhocDetail.php?id=<?php echo $monhoc[0]; ?>"><?php echo $monhoc[1]; ?></a></td>
 						<td><?php echo $monhoc[2]; ?></td>
 						<td>
-						<!-- <button><a href="?action=delete&id=<?php echo $monhoc[0]; ?>">Delete</a></button> -->
-						<button type="button" data-toggle="modal" data-target="#<?php echo $monhoc[1]; ?>">Delete</button>
-						  <div class="modal fade" id="<?php echo $monhoc[1]; ?>" role="dialog">
+						<button type="button" data-toggle="modal" data-target="#<?php echo $monhoc[0]; ?>">Delete</button>
+						  <div class="modal fade" id=<?php echo $monhoc[0]; ?> role="dialog">
 						    <div class="modal-dialog">
 						      <div class="modal-content">
 						        <div class="modal-header">
 						          <button type="button" class="close" data-dismiss="modal">&times;</button>
-						          <h4 class="modal-title">Bạn có chắc muốn xóa chuyên mục này</h4>
+						          <h4 class="modal-title">Bạn có chắc muốn xóa môn học này</h4>
 						        </div>
 						        <div class="modal-body">
-						          <p>Chuyên mục <?php echo $chuyenmuc[1]; ?></p>
+						          <p>Môn học<?php echo $monhoc[1]; ?></p>
 						        </div>
 						        <div class="modal-footer">
 						          <button type="button" class="btn btn-default"><a href="?action=delete&id=<?php echo $monhoc[0]; ?>">Yes</a></button>

@@ -3,8 +3,8 @@ include "admin.php";
 
 ?>
 <div class="container">
-	<h1>Chuyen muc management</h1>
-	<h3>Them chuyen muc</h3>
+	<h1>Chuyên mục management</h1>
+	<h3>Thêm chuyên mục</h3>
 	<form action="?action=add" method="post">
 		Name<br><input type="text" name="name">
 		<button>Add</button>
@@ -42,7 +42,7 @@ include "admin.php";
 			
 		?>
 	</form>
-	<h3>Danh sach chuyen muc</h3>
+	<h3>Danh sách chuyên mục</h3>
 	<div>
 		<?php
 			$rows = getChuyenmuc();
