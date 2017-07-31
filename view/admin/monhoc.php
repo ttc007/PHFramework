@@ -6,26 +6,29 @@ include "../../model/chuyenmucData.php";
 	<h1>Môn học management</h1>
 	
 	<div class="panel panel-info">
-	<h3>Thêm môn học</h3>
-	<div class="panel-body">
-	<form action="?action=add" method="post">
-		Name<br><input type="text" name="name">
-		<br><br>
-		Chọn chuyên mục của môn học<br>
-		<select name="chuyenmucID">
-					<option>--Chọn--</option>
-			<?php 
-				$chuyenmucs=getChuyenmuc();
-				foreach ($chuyenmucs as $chuyenmuc) {
-			?>
-					<option value="<?php echo "$chuyenmuc[0]";?>"><?php echo $chuyenmuc[1]; ?></option>
-			<?php
-				}
-			?>
-		</select>
-		<br><br>
-		<button>Add</button>
-	</div>
+	<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Thêm môn học</button>
+	  <div id="demo" class="collapse">
+	    <div class="panel-body">
+		<form action="?action=add" method="post">
+			Name<br><input type="text" name="name">
+			<br><br>
+			Chọn chuyên mục của môn học<br>
+			<select name="chuyenmucID">
+						<option>--Chọn--</option>
+				<?php 
+					$chuyenmucs=getChuyenmuc();
+					foreach ($chuyenmucs as $chuyenmuc) {
+				?>
+						<option value="<?php echo "$chuyenmuc[0]";?>"><?php echo $chuyenmuc[1]; ?></option>
+				<?php
+					}
+				?>
+			</select>
+			<br><br>
+			<button>Add</button>
+			</form>
+		</div>
+	
 	</div>
 		<?php
 			include ('../../model/data.php');
@@ -72,7 +75,7 @@ include "../../model/chuyenmucData.php";
 			}
 			
 		?>
-	</form>
+	
 	<h3>Danh sách môn học</h3>
 	<div>
 		<?php

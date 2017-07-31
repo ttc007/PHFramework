@@ -8,8 +8,9 @@ $chuong = getChuong($idChuong);
 ?>
 <div class="container">
 	<h1>Chương <?php echo "$chuong[1]"; ?> Management</h1>
-	<h3>Thêm 1 câu trắc nghiệm</h3>
-	<form action="?action=add" method="post">
+	<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Thêm 1 câu trắc nghiệm</button>
+	  <div id="demo" class="collapse">
+	    <form action="?action=add" method="post">
 		Content<br>
 		<input type="hidden" name="idChuong" value="<?php echo $idChuong; ?>">
 		<textarea name="content" id="editor1" rows="10" cols="80"></textarea>
@@ -29,48 +30,45 @@ $chuong = getChuong($idChuong);
 		<input type="text" name="daCX">
 		<br><br>
 		<button>Add</button>
+		</form>
+	  </div>
+
 		<?php
 			global $db;
 			$action=filter_input(INPUT_GET, 'action');
 			if($action=="") $action=filter_input(INPUT_POST, 'action');
 			if($action=="add") {
 				$content=filter_input(INPUT_POST, 'content');
-				// $chuongId=filter_input(INPUT_POST, 'chuongId');
 				$daA=filter_input(INPUT_POST, 'daA');
 				$daB=filter_input(INPUT_POST, 'daB');
 				$daC=filter_input(INPUT_POST, 'daC');
 				$daD=filter_input(INPUT_POST, 'daD');
 				$daCX=filter_input(INPUT_POST, 'daCX');
 				addTracnghiem($content,$daA,$daB,$daC,$daD,$daCX,$idChuong);
-				// addTracnghiem($content,$daA,$idChuong);
 				header("Location:chuongDetail.php?idChuong=$idChuong");
 			}
 			if($action=="delete") {
-				$idChuong=filter_input(INPUT_GET, 'idChuong');
-				deleteChuong($idChuong);
-	            header("Location:monhocDetail.php?id=$id");
+				$id=filter_input(INPUT_GET, 'id');
+				deleteTracnghiem($id);
+	            header("Location:chuongDetail.php?idChuong=$idChuong");
 			}
 			if($action=="edit") {
-				$idChuong=filter_input(INPUT_GET, 'idChuong');
+				$id=filter_input(INPUT_GET, 'id');
 			}
 			if($action=="Save") {
-				$idChuong=filter_input(INPUT_POST, 'idChuong');
-				$name=filter_input(INPUT_POST, 'name');
+				$id=filter_input(INPUT_POST, 'id');
 				$content=filter_input(INPUT_POST, 'content');
-				$q="UPDATE chuong
-				SET name = :name, content = :content
-				WHERE id=:id;";
-				$statement=$db->prepare($q);
-	            $statement->bindValue(':id',$idChuong);
-	            $statement->bindValue(':name',$name);
-	            $statement->bindValue(':content',$content);
-	            $statement->execute();
+				$daA=filter_input(INPUT_POST, 'daA');
+				$daB=filter_input(INPUT_POST, 'daB');
+				$daC=filter_input(INPUT_POST, 'daC');
+				$daD=filter_input(INPUT_POST, 'daD');
+				$daCX=filter_input(INPUT_POST, 'daCX');
+
 	            header("Location:monhocDetail.php?id=$id");
 			}
 			
 		?>
-	</form>
-	<h3>Danh sách chương</h3>
+	<h3>Danh sách trắc nghiệm</h3>
 	<div>
 		<?php
 			$rows = getTracnghiems($idChuong);
@@ -78,9 +76,12 @@ $chuong = getChuong($idChuong);
 			<table class="table table-striped">
 			<tr>
 				<td>ID</td>
-				<td>Name</td>
 				<td>Content</td>
-				<td></td>
+				<td>A</td>
+				<td>B</td>
+				<td>C</td>
+				<td>D</td>
+				<td>Correct</td>
 				<td></td>
 			</tr>
 		<?php
@@ -91,16 +92,21 @@ $chuong = getChuong($idChuong);
 				<tr>
 					<td><?php echo $chuyenmuc[0]; ?></td>
 					<?php 
-						if(($action=="edit")&&($idChuong==$chuyenmuc[0])) {
+						if(($action=="edit")&&($id==$chuyenmuc[0])) {
 					?>
 						<form action="monhocDetail.php" method="post">
-						<td><input type="text" name="name" value="<?php echo $chuyenmuc[1]; ?>"></td>
+						<!-- <td><input type="text" name="name" value="<?php echo $chuyenmuc[1]; ?>"></td> -->
 						<td>
 						<textarea name="content" id="editor2" rows="10" cols="80" value="<?php echo $chuyenmuc[2]; ?>"><?php echo $chuyenmuc[2]; ?></textarea>
 						<script>
 						    CKEDITOR.replace( 'editor2' );
 						</script></td>
-						<input type="hidden" name="id" value="<?php echo $id; ?>">
+						<td><input type="text" name="daA"></td>
+						<td><input type="text" name="daB"></td>
+						<td><input type="text" name="daC"></td>
+						<td><input type="text" name="daD"></td>
+						<td><input type="text" name="daCX"></td>
+						<input type="hidden" name="id" value="<?php echo $chuyenmuc[0]; ?>">
 						<td><input type="submit" name="action" value="Save">
 						<input type="hidden" name="idChuong" value="<?php echo $chuyenmuc[0]; ?>">
 						</form>
@@ -110,7 +116,10 @@ $chuong = getChuong($idChuong);
 					?>
 						<td><?php echo $chuyenmuc[1]; ?></td>
 						<td><?php echo $chuyenmuc[2]; ?></td>
-						<td><a href="chuongDetail.php?idChuong=<?php echo $chuyenmuc[0]; ?>">Trắc nghiệm</a></td>
+						<td><?php echo $chuyenmuc[3]; ?></td>
+						<td><?php echo $chuyenmuc[4]; ?></td>
+						<td><?php echo $chuyenmuc[5]; ?></td>
+						<td><?php echo $chuyenmuc[6]; ?></td>
 						<td>
 						<button type="button" data-toggle="modal" data-target="#<?php echo $chuyenmuc[0]; ?>">Delete</button>
 						  <div class="modal fade" id="<?php echo $chuyenmuc[0]; ?>" role="dialog">
@@ -118,21 +127,21 @@ $chuong = getChuong($idChuong);
 						      <div class="modal-content">
 						        <div class="modal-header">
 						          <button type="button" class="close" data-dismiss="modal">&times;</button>
-						          <h4 class="modal-title">Bạn có chắc muốn xóa chương này</h4>
+						          <h4 class="modal-title">Bạn có chắc muốn xóa câu này</h4>
 						        </div>
 						        <div class="modal-body">
-						          <p>Chương <?php echo $chuyenmuc[1]; ?></p>
+						          <p>Câu <?php echo $chuyenmuc[1]; ?></p>
 						        </div>
 						        <div class="modal-footer">
-						          <button type="button" class="btn btn-default"><a href="?action=delete&id=<?php echo $id; ?>&idChuong=<?php echo $chuyenmuc[0]; ?>">Yes</a></button>
+						          <a href="?action=delete&id=<?php echo $chuyenmuc[0]; ?>&idChuong=<?php echo $idChuong; ?>"><button type="button" class="btn btn-default">Yes</button></a>
 						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 						        </div>
 						      </div>
 						      
 						    </div>
 						  </div>
-						<button><a href="?action=edit&idChuong=<?php echo $chuyenmuc[0]; ?>&id=<?php echo $id; ?>">Edit</a></button></td>
-					<?php		
+						<a href="?action=edit&idChuong=<?php echo $idChuong; ?>&id=<?php echo $chuyenmuc[0]; ?>"><button>Edit</button></a></td>
+					<?php
 						}
 					?>
 				</tr>

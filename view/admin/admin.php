@@ -32,6 +32,20 @@
               <ul class="nav navbar-nav ul1">
                 <li><a href="chuyenmuc.php">Chuyên mục</a></li>
                 <li><a href="monhoc.php">Môn học</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Môn học chi tiết<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <?php
+                      include "../../model/data.php";
+                      $q="SELECT * from monhoc";
+                      $statement=$db->prepare($q);
+                      $statement->execute();
+                      $rows=$statement->fetchAll();
+                      foreach ($rows as $value) {
+                    ?>
+                    <li><a href="monhocDetail.php?id=<?php echo $value[0]; ?>"><?php echo $value[1]; ?></a></li>
+                    <?php } ?>
+                  </ul>
               </ul>
               <form class="navbar-form navbar-left">
                 <div class="form-group">
@@ -40,7 +54,7 @@
                 <button type="submit" class="btn btn-default">Go</button>
               </form>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">View site</a></li>
+                <li><a href="../home.php">View site</a></li>
               </ul>
             </div>
           </div>

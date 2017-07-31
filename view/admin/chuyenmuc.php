@@ -4,10 +4,14 @@ include "admin.php";
 ?>
 <div class="container">
 	<h1>Chuyên mục management</h1>
-	<h3>Thêm chuyên mục</h3>
-	<form action="?action=add" method="post">
-		Name<br><input type="text" name="name">
-		<button>Add</button>
+	<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Thêm chuyên mục</button>
+	  <div id="demo" class="collapse">
+	    <form action="?action=add" method="post">
+			Name<br><input type="text" name="name">
+			<button>Add</button>
+		</form>
+	  </div>
+
 		<?php
 			// include ('../../model/data.php');
 			include ('../../model/chuyenmucData.php');
@@ -41,7 +45,7 @@ include "admin.php";
 			}
 			
 		?>
-	</form>
+	
 	<h3>Danh sách chuyên mục</h3>
 	<div>
 		<?php

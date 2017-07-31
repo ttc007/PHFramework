@@ -8,30 +8,40 @@ $monhoc = getMonhoc($id);
 ?>
 <div class="container">
 	<h1><?php echo "$monhoc[1]"; ?> Management</h1>
-	<h3>Thêm 1 chương</h3>
-	<form action="?action=add" method="post">
-		Name
-		<br>
-		<input type="text" name="name">
-		<br><br>
-		Content<br>
-		<input type="hidden" name="id" value="<?php echo $monhoc[0]; ?>">
-		<textarea name="content" id="editor1" rows="10" cols="80"></textarea>
-		<script>
-		    CKEDITOR.replace( 'editor1' );
-		</script>
-		<br>
-		<button>Add</button>
+	<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Thêm 1 chương</button>
+	  <div id="demo" class="collapse">
+		<form action="?action=add" method="post">
+			Name
+			<br>
+			<input type="text" name="name">
+			<br><br>
+			Content<br>
+			<input type="hidden" name="id" value="<?php echo $monhoc[0]; ?>">
+			<textarea name="content" id="editor1" rows="10" cols="80"></textarea>
+			<script>
+			    CKEDITOR.replace( 'editor1' );
+			</script>
+			<br><br>
+			Bài tập<br>
+			<textarea name="baitap" id="editor3" rows="10" cols="80"></textarea>
+			<script>
+			    CKEDITOR.replace( 'editor3' );
+			</script>
+			<br>
+			<button>Add</button>
+		</form>
+	  </div>
+
 		<?php
 			global $db;
 			$action=filter_input(INPUT_GET, 'action');
 			if($action=="") $action=filter_input(INPUT_POST, 'action');
+
 			if($action=="add") {
 				$name=filter_input(INPUT_POST, 'name');
 				$content=filter_input(INPUT_POST, 'content');
 				$monhocId=filter_input(INPUT_POST, 'id');
-				addChuong($name,$content,$monhocId);
-				// header("Location:monhocDetail.php");
+				addChuong($name,$content,$baitap,$monhocId);
 			}
 			if($action=="delete") {
 				$idChuong=filter_input(INPUT_GET, 'idChuong');
@@ -46,18 +56,19 @@ $monhoc = getMonhoc($id);
 				$name=filter_input(INPUT_POST, 'name');
 				$content=filter_input(INPUT_POST, 'content');
 				$q="UPDATE chuong
-				SET name = :name, content = :content
+				SET name = :name, content = :content, baitap=:baitap
 				WHERE id=:id;";
 				$statement=$db->prepare($q);
 	            $statement->bindValue(':id',$idChuong);
 	            $statement->bindValue(':name',$name);
 	            $statement->bindValue(':content',$content);
+	            $statement->bindValue(':baitap',$baitap);
 	            $statement->execute();
 	            header("Location:monhocDetail.php?id=$id");
 			}
 			
 		?>
-	</form>
+	
 	<h3>Danh sách chương</h3>
 	<div>
 		<?php
@@ -68,6 +79,7 @@ $monhoc = getMonhoc($id);
 				<td>ID</td>
 				<td>Name</td>
 				<td>Content</td>
+				<td>Bài tập</td>
 				<td></td>
 				<td></td>
 			</tr>
@@ -88,16 +100,24 @@ $monhoc = getMonhoc($id);
 						<script>
 						    CKEDITOR.replace( 'editor2' );
 						</script></td>
+						<td>
+							<textarea name="baitap" id="editor4" rows="10" cols="80"></textarea>
+							<script>
+							    CKEDITOR.replace( 'editor4' );
+							</script>
+						</td>
 						<input type="hidden" name="id" value="<?php echo $id; ?>">
 						<td><input type="submit" name="action" value="Save">
 						<input type="hidden" name="idChuong" value="<?php echo $chuyenmuc[0]; ?>">
 						</form>
 						<a href="monhocDetail.php?id=<?php echo $id; ?>">Cancel</a></td>
+
 					<?php
-						} else {
+						exit();} else {
 					?>
 						<td><?php echo $chuyenmuc[1]; ?></td>
 						<td><?php echo $chuyenmuc[2]; ?></td>
+						<td><?php echo $chuyenmuc[3]; ?></td>
 						<td><a href="chuongDetail.php?idChuong=<?php echo $chuyenmuc[0]; ?>">Trắc nghiệm</a></td>
 						<td>
 						<button type="button" data-toggle="modal" data-target="#<?php echo $chuyenmuc[0]; ?>">Delete</button>
