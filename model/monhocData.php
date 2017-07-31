@@ -18,12 +18,31 @@ function getMonhoc($id) {
 	$rows=$statement->fetch();
 	return $rows;
 }
+function getMonhocRef($id) {
+	global $db;
+	$q="SELECT * from monhoc where chuyenmuc_id = :id";
+	$statement=$db->prepare($q);
+	$statement->bindValue(':id',$id);
+	$statement->execute();
+	$rows=$statement->fetchAll();
+	return $rows;
+}
 
 function getChuongs($monhocId) {
 	global $db;
 	$q="SELECT * from chuong where monhoc_id = :id";
 	$statement=$db->prepare($q);
 	$statement->bindValue(':id',$monhocId);
+	$statement->execute();
+	$rows=$statement->fetchAll();
+	return $rows;
+}
+
+function getChuongAll() {
+	global $db;
+	$q="SELECT * from chuong ";
+	$statement=$db->prepare($q);
+	// $statement->bindValue(':id',$monhocId);
 	$statement->execute();
 	$rows=$statement->fetchAll();
 	return $rows;

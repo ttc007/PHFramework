@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/bootstrap/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../static/bootstrap/jquery.min.js"></script>
+    <script src="../static/bootstrap/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/home.css">
 
     
@@ -15,28 +15,30 @@
 <body>
     <nav class="navbar navbar-default menu">
         <div class="container">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="#">Home</a>
-            </div>
+              
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav ul1">
-                <li><a href="#">Tin tức-sự kiện</a></li>
-                <li><a href="#">Thông báo chiêu sinh</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Chương trình học <span class="caret"></span></a>
+                <li><a href="home.php"><h4>Trang chủ</h4></a></li>
+                <li><a href="#"><h4>Giới thiệu</h4></a></li>
+                <li><a href="chuongtrinhhoc.php"><h4>Chương trình đào tạo</h4></a></li>
+                <!-- <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><h4>Chương trình đào tạo</h4></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Toán</a>
+                    <li><a href="chuongtrinhhoc.php">Luyện thi đại học</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Toán 1</a></li>
-                            <li><a href="#">Toán 2</a></li>
-                            <li><a href="#">Toán 3</a></li>
+                            <li><a href="#">Toán</a></li>
+                            <li><a href="#">Lý</a></li>
+                            <li><a href="#">Hóa</a></li>
                             <li><a href="#">Separated link</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Lý</a></li>
-                    <li><a href="#">Hóa</a></li>
+                    <li><a href="chuongtrinhhoc.php">Môn học cơ sở </a></li>
                   </ul>
-                </li>
+                </li> -->
+                <li><a href="#"><h4>Lớp NV-Xây dựng</h4></a></li>
+                <li><a href="#"><h4>Tin tức</h4></a></li>
+                <li><a href="#"><h4>Liên hệ</h4></a></li>
+                
                 </ul>
               <form class="navbar-form navbar-left">
                 <div class="form-group">
@@ -44,22 +46,9 @@
                 </div>
                 <button type="submit" class="btn btn-default">Go</button>
               </form>
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Đăng kí học</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-                </li>
-              </ul>
+              
             </div>
           </div>
     </nav>
-
-    <div class="banner1">
-        <img src="../static/images/baner1.jpg" >
-    </div>
+    
+    

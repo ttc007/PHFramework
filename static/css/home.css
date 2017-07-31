@@ -1,6 +1,16 @@
+body {
+	background:#eeeeee; 
+}
 .menu {
 	margin: 0;
 	background-color: #b2e5f8;
+
+}
+.ul1 {
+	text-align: center;
+}
+.ul1>li:hover {
+	background-color: #8db916;
 }
 .ul1 li:hover>ul{
 	display: block;
@@ -28,7 +38,19 @@
 	background-color: #eeeeee;
 }
 .banner1 img {
-	margin: 0 10%;
-	width: 80%;
-	height: 400px;
+	margin: 0 auto;
+	width: 1150px;
+	height: 100px;
+}
+.navbar-default .navbar-nav>li>a{
+	color: #123456;
+}
+footer {
+	clear: both;
+	background: #fdddb4;
+	color: #5990a4;
+	border-radius: 20px;
+}
+.home-tintuc {
+	margin-top: 40px;
 }

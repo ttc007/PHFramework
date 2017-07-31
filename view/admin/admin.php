@@ -7,26 +7,15 @@
     <meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″ />
     <link rel="stylesheet" href="../../static/bootstrap/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../../static/bootstrap/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../../static/css/home.css">
     <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
-    <script type='text/x-mathjax-config'>
-    MathJax.Hub.Config({
-      TeX: { equationNumbers: { autoNumber: &quot;AMS&quot; } }
-    });
-    </script>
-     
-    <script type='text/x-mathjax-config'> 
-    MathJax.Hub.Config({tex2jax: {inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\(&#39;,&#39;\)&#39;]]}}); </script> 
-     
-    <script src='http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG' type='text/javascript'> 
-    </script>
 </head>
 <body>
 	<nav class="navbar navbar-default menu">
         <div class="container">
             <div class="navbar-header">
-              <a class="navbar-brand" href="#">Admin</a>
+              <a class="navbar-brand" href="admin.php">Admin</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav ul1">
@@ -45,7 +34,7 @@
                     ?>
                     <li><a href="monhocDetail.php?id=<?php echo $value[0]; ?>"><?php echo $value[1]; ?></a></li>
                     <?php } ?>
-                  </ul>
+                  </ul></li>
               </ul>
               <form class="navbar-form navbar-left">
                 <div class="form-group">
@@ -59,5 +48,3 @@
             </div>
           </div>
     </nav>
-</body>
-</html>
