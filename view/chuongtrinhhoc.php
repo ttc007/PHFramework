@@ -6,6 +6,7 @@ include "../model/chuyenmucData.php";
 ?>
 <?php
 	$id=filter_input(INPUT_GET, 'idChuong');
+	$bt=filter_input(INPUT_GET, 'bt');
 	$chuong=getChuong($id);
 ?>
 <div class="container">
@@ -64,19 +65,28 @@ include "../model/chuyenmucData.php";
 			</ul>
 		</div>
 		<div style="height: 800px;overflow: scroll;">
-			  
+			<?php
+				if($bt==1) {
+			?>
+			<h4>Bài tập <?php echo $chuong[1]?></h4>
+			<p><?php echo $chuong[3]?></p>
+			<?php
+				} else {
+			?>
 			<a data-toggle="collapse" data-target="#demo"><h3><?php echo $chuong[1]?></h3></a>
 			
 			<div id="demo" class="collapse in">
 
 				<p><?php echo $chuong[2]?></p>
-				<h4>Bài tập</h4>
+				<h4><a href="?idChuong=<?php echo $chuong[0]; ?>&bt=1">Bài tập</a></h4>
 			</div>
+			<?php
+				} 
+			?>
 			
-			<h5><?php echo $chuong[3]?></h5>
 		</div> 
 	</div>
 </div>
 <?php
-// include 'footer.php';
+include 'footer.php';
 ?>

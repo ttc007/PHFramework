@@ -26,7 +26,7 @@ include 'layout.php';
       <span class="sr-only">Next</span>
     </a>
   </div>
-  <div class="container home-tintuc">
+  <div class="container home-tintuc" style="margin-top: 30px">
   	<div class="panel panel-info col-md-7" style="padding: 0">
   		<div class="panel-heading">
   			<h3>Tin tức</h3>

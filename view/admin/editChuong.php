@@ -46,33 +46,3 @@ if($action=="Save") {
  			</form>
 			<a href="monhocDetail.php?id=<?php echo $id; ?>">Cancel</a></td>
 </div>
-// <!-- <?php 
-// 		if(($action=="edit")&&($idChuong==$chuyenmuc[0])) {
-// 	?> -->
-// 						<!-- <tr>
-// 					<td><?php echo $chuyenmuc[0]; ?></td>
-// 						<form action="monhocDetail.php" method="post">
-// 						<td><input type="text" name="name" value="<?php echo $chuyenmuc[1]; ?>"></td>
-// 						<td>
-// 						<textarea name="content" id="editor2" rows="10" cols="80" value="<?php echo $chuyenmuc[2]; ?>"><?php echo $chuyenmuc[2]; ?></textarea>
-// 						<script>
-// 						    CKEDITOR.replace( 'editor2' );
-// 						</script></td>
-// 						<td>
-// 							<textarea name="baitap" id="editor4" rows="10" cols="80"><?php echo $chuyenmuc[3]; ?></textarea>
-// 							<script>
-// 							    CKEDITOR.replace( 'editor4' );
-// 							</script>
-// 						</td>
-// 						<input type="hidden" name="id" value="<?php echo $id; ?>">
-// 						<td><input type="submit" name="action" value="Save">
-// 						<input type="hidden" name="idChuong" value="<?php echo $chuyenmuc[0]; ?>">
-// 						</form>
-// 						<a href="monhocDetail.php?id=<?php echo $id; ?>">Cancel</a></td>
-					
-// 				</tr> -->
-						
-						
-// 					<!-- <?php		
-// 						} exit();
-// 					?> -->

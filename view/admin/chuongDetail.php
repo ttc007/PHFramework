@@ -63,8 +63,8 @@ $chuong = getChuong($idChuong);
 				$daC=filter_input(INPUT_POST, 'daC');
 				$daD=filter_input(INPUT_POST, 'daD');
 				$daCX=filter_input(INPUT_POST, 'daCX');
-
-	            header("Location:monhocDetail.php?id=$id");
+				saveTracnghiem($id,$content,$daA,$daB,$daC,$daD,$daCX);
+	            header("Location:chuongDetail.php?idChuong=$idChuong");
 			}
 			
 		?>
@@ -94,23 +94,24 @@ $chuong = getChuong($idChuong);
 					<?php 
 						if(($action=="edit")&&($id==$chuyenmuc[0])) {
 					?>
-						<form action="monhocDetail.php" method="post">
+						<form action="chuongDetail.php" method="post">
 						<!-- <td><input type="text" name="name" value="<?php echo $chuyenmuc[1]; ?>"></td> -->
 						<td>
-						<textarea name="content" id="editor2" rows="10" cols="80" value="<?php echo $chuyenmuc[2]; ?>"><?php echo $chuyenmuc[2]; ?></textarea>
+						<textarea name="content" id="editor2" rows="10" cols="80" ><?php echo $chuyenmuc[1]; ?></textarea>
 						<script>
 						    CKEDITOR.replace( 'editor2' );
 						</script></td>
-						<td><input type="text" name="daA"></td>
-						<td><input type="text" name="daB"></td>
-						<td><input type="text" name="daC"></td>
-						<td><input type="text" name="daD"></td>
-						<td><input type="text" name="daCX"></td>
+						<td><input type="text" name="daA" value="<?php echo $chuyenmuc[2]; ?>"></td>
+						<td><input type="text" name="daB" value="<?php echo $chuyenmuc[3]; ?>"></td>
+						<td><input type="text" name="daC" value="<?php echo $chuyenmuc[4]; ?>"></td>
+						<td><input type="text" name="daD" value="<?php echo $chuyenmuc[5]; ?>"></td>
+						<td><input type="text" name="daCX" value="<?php echo $chuyenmuc[6]; ?>"></td>
 						<input type="hidden" name="id" value="<?php echo $chuyenmuc[0]; ?>">
+						<input type="hidden" name="idChuong" value="<?php echo $idChuong; ?>">
 						<td><input type="submit" name="action" value="Save">
-						<input type="hidden" name="idChuong" value="<?php echo $chuyenmuc[0]; ?>">
+						
 						</form>
-						<a href="monhocDetail.php?id=<?php echo $id; ?>">Cancel</a></td>
+						<a href="chuongDetail.php?idChuong=<?php echo $idChuong; ?>">Cancel</a></td>
 					<?php
 						} else {
 					?>

@@ -1,4 +1,7 @@
-<footer class="container">
+<footer class="container" style="clear: both;
+	background: #1e1e1e;
+	color: #599074;
+	border-radius: 20px;">
       <div class="container">
         <h3>Copyright © 2012 - Trung tâm tin học Kiến trúc - Xây dựng & Nghiệp vụ ENTER</h3>
         <h4>Cơ sở 1:</h4>

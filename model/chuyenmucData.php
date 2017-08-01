@@ -21,7 +21,7 @@ function getChuyenmuc2() {
 	$q="SELECT * from chuyenmuc where loai=2";
 	$statement=$db->prepare($q);
 	$statement->execute();
-	$rows=$statement->fetchAll();
+	$rows=$statement->fetch();
 	return $rows;
 }
 function addChuyenmuc($name) {

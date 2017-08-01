@@ -25,6 +25,10 @@ include "../../model/chuyenmucData.php";
 				?>
 			</select>
 			<br><br>
+			Thông tin định mức<br>
+			<textarea name="thongtindinhmuc" placeholder="Đối với xây dựng"></textarea><br><br>
+			Phần mềm<br>
+			<textarea name="phanmem" placeholder="Đối với xây dựng"></textarea><br><br>
 			<button>Add</button>
 			</form>
 		</div>
@@ -37,12 +41,16 @@ include "../../model/chuyenmucData.php";
 			if($action=="") $action=filter_input(INPUT_POST, 'action');
 			if($action=="add") {
 
-				$q="INSERT INTO monhoc (name,chuyenmuc_id)
-					VALUES (:name,:chuyenmucID);";
+				$q="INSERT INTO monhoc (name,chuyenmuc_id,thongtindinhmuc,phanmem)
+					VALUES (:name,:chuyenmucID,:thongtindinhmuc,:phanmem);";
 				$name=filter_input(INPUT_POST, 'name');
 				$chuyenmucID=filter_input(INPUT_POST, 'chuyenmucID');
+				$thongtindinhmuc=filter_input(INPUT_POST, 'thongtindinhmuc');
+				$phanmem=filter_input(INPUT_POST, 'phanmem');
 				$statement=$db->prepare($q);
 	            $statement->bindValue(':name',$name);
+	            $statement->bindValue(':thongtindinhmuc',$thongtindinhmuc);
+	            $statement->bindValue(':phanmem',$phanmem);
 	            $statement->bindValue(':chuyenmucID',$chuyenmucID);
 	            $statement->execute();
 	            header("Location:monhoc.php");
@@ -63,12 +71,16 @@ include "../../model/chuyenmucData.php";
 				$id=filter_input(INPUT_POST, 'id');
 				$name=filter_input(INPUT_POST, 'name');
 				$chuyenmucID=filter_input(INPUT_POST, 'chuyenmucID');
+				$thongtindinhmuc=filter_input(INPUT_POST, 'thongtindinhmuc');
+				$phanmem=filter_input(INPUT_POST, 'phanmem');
 				$q="UPDATE monhoc
-				SET name = :name, chuyenmuc_id = :chuyenmucID
+				SET name = :name, chuyenmuc_id = :chuyenmucID,thongtindinhmuc=:thongtindinhmuc,phanmem=:phanmem
 				WHERE id=:id;";
 				$statement=$db->prepare($q);
 	            $statement->bindValue(':id',$id);
 	            $statement->bindValue(':name',$name);
+	            $statement->bindValue(':thongtindinhmuc',$thongtindinhmuc);
+	            $statement->bindValue(':phanmem',$phanmem);
 	            $statement->bindValue(':chuyenmucID',$chuyenmucID);
 	            $statement->execute();
 	            header("Location:monhoc.php");
@@ -89,6 +101,8 @@ include "../../model/chuyenmucData.php";
 				<td>ID</td>
 				<td>Name</td>
 				<td>Chuyên mục</td>
+				<td></td>
+				<td></td>
 				<td></td>
 			</tr>
 		<?php
@@ -121,6 +135,8 @@ include "../../model/chuyenmucData.php";
 									} }
 								?>
 							</select></td>
+							<td><textarea name="thongtindinhmuc" placeholder="Đối với xây dựng"><?php echo $monhoc[3]; ?></textarea></td>
+							<td><textarea name="phanmem" placeholder="Đối với xây dựng"><?php echo $monhoc[4]; ?></textarea></td>
 						<td><input type="submit" name="action" value="Save">
 						<input type="hidden" name="id" value="<?php echo $monhoc[0]; ?>">
 						</form>
@@ -131,6 +147,8 @@ include "../../model/chuyenmucData.php";
 						
 						<td><a href="monhocDetail.php?id=<?php echo $monhoc[0]; ?>"><?php echo $monhoc[1]; ?></a></td>
 						<td><?php echo $monhoc[2]; ?></td>
+						<td><?php echo $monhoc[3]; ?></td>
+						<td><?php echo $monhoc[4]; ?></td>
 						<td>
 						<button type="button" data-toggle="modal" data-target="#<?php echo $monhoc[0]; ?>">Delete</button>
 						  <div class="modal fade" id=<?php echo $monhoc[0]; ?> role="dialog">

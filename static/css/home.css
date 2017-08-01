@@ -9,8 +9,11 @@ body {
 .ul1 {
 	text-align: center;
 }
+.ul1 li {
+	float: left;
+}
 .ul1>li:hover {
-	background-color: #8db916;
+	background-color: #8db916; 
 }
 .ul1 li:hover>ul{
 	display: block;

@@ -84,7 +84,7 @@ function getTracnghiems($chuongid) {
 	$rows=$statement->fetchAll();
 	return $rows;
 }
-function addTracnghiem($content,$daA,$idChuong) {
+function addTracnghiem($content,$daA,$daB,$daC,$daD,$daCX,$idChuong) {
 	global $db;
 	$q="INSERT INTO tracnghiem (content,daA,daB,daC,daD,daCX,chuong_id)
 		VALUES (:content,:daA,:daB,:daC,:daD,:daCX,:chuong_id);";
@@ -106,9 +106,9 @@ function deleteTracnghiem($id) {
     $statement->bindValue(':id',$id);
 	$statement->execute();
 }
-function saveTracnghiem($id,$content,$daA,$idChuong) {
+function saveTracnghiem($id,$content,$daA,$daB,$daC,$daD,$daCX) {
 	global $db;
-	$q="UPDATE chuong
+	$q="UPDATE tracnghiem
 		SET content = :content, daA=:daA, daB=:daB,daC=:daC,daD=:daD,daCX=:daCX
 		WHERE id=:id;";
 	$statement=$db->prepare($q);
