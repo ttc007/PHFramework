@@ -30,3 +30,4 @@ function changeStatusDangkihoc2($id) {
 	$statement->bindValue(':id',$id);
 	$statement->execute();
 }
+?>

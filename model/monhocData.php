@@ -121,3 +121,4 @@ function saveTracnghiem($id,$content,$daA,$daB,$daC,$daD,$daCX) {
 	$statement->bindValue(':daCX',$daCX);
 	$statement->execute();
 }
+?>

@@ -13,7 +13,7 @@ include "admin.php";
 	  </div>
 
 		<?php
-			// include ('../../model/data.php');
+			include ('../../model/data.php');
 			include ('../../model/chuyenmucData.php');
 			global $db;
 			$action=filter_input(INPUT_GET, 'action');
@@ -110,3 +110,6 @@ include "admin.php";
 	</div>
 
 </div>
+<?php
+include '../footer.php';
+?>

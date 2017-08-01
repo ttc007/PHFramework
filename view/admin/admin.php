@@ -9,7 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="../../static/bootstrap/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../../static/css/home.css">
-    <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="../../ckeditor/ckeditor.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-default menu">

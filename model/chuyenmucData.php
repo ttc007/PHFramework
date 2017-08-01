@@ -41,4 +41,4 @@ function deleteChuyenmuc($id) {
 	$statement->execute();          
 }
 
-
+?>

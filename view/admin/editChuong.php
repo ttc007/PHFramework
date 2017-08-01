@@ -33,13 +33,13 @@ if($action=="Save") {
 			<input type="hidden" name="id" value="<?php echo $chuong[0]; ?>">
 			<textarea name="content" id="editor1" rows="10" cols="80"><?php echo $chuong[2]; ?></textarea>
 			<script>
-			    CKEDITOR.replace( 'editor1' );
+			    CKEDITOR.replace( 'editor1');
 			</script>
 			<br><br>
 			Bài tập<br>
 			<textarea name="baitap" id="editor3" rows="10" cols="80"><?php echo $chuong[3]; ?></textarea>
 			<script>
-			    CKEDITOR.replace( 'editor3' );
+			    CKEDITOR.replace( 'editor3');
 			</script>
 			<br>
 			<input type="submit" name="action" value="Save">
