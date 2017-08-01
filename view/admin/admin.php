@@ -15,7 +15,7 @@
 	<nav class="navbar navbar-default menu">
         <div class="container">
             <div class="navbar-header">
-              <a class="navbar-brand" href="admin.php">Admin</a>
+              <a class="navbar-brand" href="index.php">Admin</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav ul1">
@@ -35,6 +35,7 @@
                     <li><a href="monhocDetail.php?id=<?php echo $value[0]; ?>"><?php echo $value[1]; ?></a></li>
                     <?php } ?>
                   </ul></li>
+                  <li><a href="danhsachdangki.php">Danh sách đăng kí học</a></li>
               </ul>
               <form class="navbar-form navbar-left">
                 <div class="form-group">
