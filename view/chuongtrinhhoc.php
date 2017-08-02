@@ -1,7 +1,7 @@
 <?php
 include 'layout.php';
-include "../model/monhocData.php";
-include "../model/chuyenmucData.php";
+include "../model/data.php";
+//include "../model/chuyenmucData.php";
 
 ?>
 <?php

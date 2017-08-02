@@ -1,6 +1,8 @@
 <?php
 include "admin.php";
-include "../../model/chuyenmucData.php";
+// include("../../model/data2.php");
+include "../../model/chuyenmucdata.php";
+
 ?>
 <div class="container">
 	<h1>Môn học management</h1>
@@ -26,16 +28,24 @@ include "../../model/chuyenmucData.php";
 			</select>
 			<br><br>
 			Thông tin định mức<br>
-			<textarea name="thongtindinhmuc" placeholder="Đối với xây dựng"></textarea><br><br>
+			<textarea name="thongtindinhmuc" placeholder="Đối với xây dựng" id="editor1" rows="10" cols="80"></textarea>
+			<script>
+			    CKEDITOR.replace( 'editor1' );
+			</script>
+			<br><br>
 			Phần mềm<br>
-			<textarea name="phanmem" placeholder="Đối với xây dựng"></textarea><br><br>
+			<textarea name="phanmem" placeholder="Đối với xây dựng" placeholder="Đối với xây dựng" id="editor2" rows="10" cols="80"></textarea>
+			<script>
+			    CKEDITOR.replace( 'editor2' );
+			</script>
+			<br><br>
 			<button>Add</button>
 			</form>
 		</div>
 	
 	</div>
 		<?php
-			include ('../../model/data.php');
+			
 			global $db;
 			$action=filter_input(INPUT_GET, 'action');
 			if($action=="") $action=filter_input(INPUT_POST, 'action');
@@ -135,8 +145,18 @@ include "../../model/chuyenmucData.php";
 									} }
 								?>
 							</select></td>
-							<td><textarea name="thongtindinhmuc" placeholder="Đối với xây dựng"><?php echo $monhoc[3]; ?></textarea></td>
-							<td><textarea name="phanmem" placeholder="Đối với xây dựng"><?php echo $monhoc[4]; ?></textarea></td>
+							<td><textarea name="thongtindinhmuc" placeholder="Đối với xây dựng" id="editor3" rows="10" cols="80">
+							<?php echo $monhoc[3]; ?></textarea>
+							<script>
+							    CKEDITOR.replace( 'editor3' );
+							</script>
+							</td>
+							<td><textarea name="phanmem" placeholder="Đối với xây dựng" id="editor4" rows="10" cols="80">
+							<?php echo $monhoc[4]; ?></textarea>
+								<script>
+							    CKEDITOR.replace( 'editor4' );
+								</script>
+							</td>
 						<td><input type="submit" name="action" value="Save">
 						<input type="hidden" name="id" value="<?php echo $monhoc[0]; ?>">
 						</form>
@@ -145,7 +165,7 @@ include "../../model/chuyenmucData.php";
 						} else {
 					?>
 						
-						<td><a href="monhocDetail.php?id=<?php echo $monhoc[0]; ?>"><?php echo $monhoc[1]; ?></a></td>
+						<td><a href="monhocdetail.php?id=<?php echo $monhoc[0]; ?>"><?php echo $monhoc[1]; ?></a></td>
 						<td><?php echo $monhoc[2]; ?></td>
 						<td><?php echo $monhoc[3]; ?></td>
 						<td><?php echo $monhoc[4]; ?></td>

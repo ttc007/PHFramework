@@ -26,6 +26,54 @@ include 'layout.php';
       <span class="sr-only">Next</span>
     </a>
   </div>
+            <?php
+              //include "../model/monhocData.php";
+              //include "../model/chuyenmucData.php";
+              include "../model/data.php";
+              $action=filter_input(INPUT_GET, 'action');
+              if ($action=="")$action=filter_input(INPUT_POST, 'action');
+              if($action=="dangki"){
+                  $name=filter_input(INPUT_POST, 'name');
+                  $phone=filter_input(INPUT_POST, 'phone');
+                  $address=filter_input(INPUT_POST, 'address');
+                  $monhoc=filter_input(INPUT_POST, 'monhoc');
+                  $suat=filter_input(INPUT_POST, 'suat');
+                  $thoigian=filter_input(INPUT_POST, 'thoigian');
+                  global $db;
+                  $q="INSERT INTO dangkihoc (namehocvien,phone,address,monhoc,suat,thoigian,ngaydangki,trangthai)
+                    VALUES (:name,:phone,:address,:monhoc,:suat,:thoigian,:ngaydangki,0);";
+                  $statement=$db->prepare($q);
+                  $statement->bindValue(':name',$name);
+                  $statement->bindValue(':phone',$phone);
+                  $statement->bindValue(':address',$address);
+                  $statement->bindValue(':monhoc',$monhoc);
+                  $statement->bindValue(':suat',$suat);
+                  $statement->bindValue(':thoigian',$thoigian);
+                  $ngaydangki=date("Y/m/d H:i");
+                  $statement->bindValue(':ngaydangki',$ngaydangki);
+                  $statement->execute();
+            ?>
+                  <div class="container">
+                  <div class="panel panel-info" style="margin-top: 30px;padding: 1em;color:#01576d;height: 500px;text-align: center;">
+                    <h1>Chúc mừng bạn đã đăng kí thành công khóa học</h1>
+                    <h2>Thông tin đăng kí của bạn</h2>
+                      <h3>Tên: <?php echo $name;?></h3>
+                      <h4>Phone:<?php echo $phone;?></h4>
+                      <h4>Địa chỉ:<?php echo $address;?></h4>
+                      <h4>Môn học:<?php echo $monhoc;?></h4>
+                      <h4>Suất:<?php echo $suat;?></h4>
+                      <h4>Thời gian:<?php echo $thoigian;?></h4>
+                      <h4>Ngày đăng kí:<?php echo $ngaydangki;?></h4>
+                      <h5>Thông tin sẽ được chuyển cho quản trị viên sớm</h5>
+                      <h3><a href="home.php"><button class="btn">Xác nhận</button></a></h3>
+                  </div>
+                  </div>
+            <?php
+              include 'footer.php';
+              exit();}
+
+
+            ?>
   <div class="container home-tintuc" style="margin-top: 30px">
   	<div class="panel panel-info col-md-7" style="padding: 0">
   		<div class="panel-heading">
@@ -46,23 +94,39 @@ include 'layout.php';
   	</div>
   	<div class="col-md-4 pull-right" style="border: 1px solid #67edd2;margin-bottom: 50px;padding-bottom: 10px;">
   		<h2>Đăng kí học</h2>
-  		<form action="/action_page.php">
+  		<form action="home.php" method="post">
 		    <div class="form-group">
 		      <label for="name">Name</label>
-		      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+		      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" required="">
 		    </div>
 		    <div class="form-group">
 		      <label for="phone">Số điện thoại</label>
-		      <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="phone">
+		      <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="phone" required="">
 		    </div>
 		    <div class="form-group">
 		      <label for="address">Địa chỉ</label>
-		      <input type="text" class="form-control" id="address" placeholder="Enter name" name="address">
+		      <input type="text" class="form-control" id="address" placeholder="Enter address" name="address" required="">
 		    </div>
 		    <div class="form-group">
 		      <label for="monhoc">Môn học</label>
 		      <select name="monhoc" id="monhoc" class="form-control">
-		      	<option>--Chọn--</option>
+            <!-- <option>--Chọn--</option> -->
+            
+            <?php
+
+              $q="SELECT * from monhoc where chuyenmuc_id=23";
+                      $statement=$db->prepare($q);
+                      $statement->execute();
+                      $monhocs=$statement->fetchAll();
+              //$xaydung=getChuyenmuc2();
+             // $monhocs=getMonhocRef($xaydung[0]);
+              foreach ($monhocs as $value) {
+            ?>
+              <option value="<?php echo $value[1]?>"><?php echo $value[1]?></option>
+            <?php
+              }
+            ?>
+
 		      </select>
 		    </div>
 		    <div class="form-group">
@@ -83,7 +147,8 @@ include 'layout.php';
 		    	<option value="19h-21h">19h-21h</option>
 		      </select>
 		    </div>
-		    <button type="submit" class="btn btn-default">Đăng kí</button>
+        <input type="hidden" name="action" value="dangki">
+		    <input type="submit" value="Đăng kí"  class="btn btn-default"> 
 		</form>
   	</div>
   </div>    

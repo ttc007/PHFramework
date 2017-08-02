@@ -8,6 +8,7 @@
     <script src="../static/bootstrap/jquery.min.js"></script>
     <script src="../static/bootstrap/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/home.css">
+    <link rel="shortcut icon" href="../static/images/fav.jpg">
 
     <style>
         .ul1>li:hover {
@@ -42,7 +43,7 @@
                     <li><a href="chuongtrinhhoc.php">Môn học cơ sở </a></li>
                   </ul>
                 </li> -->
-                <li><a href="lopNVxaydung.php"><h4 style="color: #123456;">Lớp NV-Xây dựng</h4></a></li>
+                <li><a href="lopnvxaydung.php"><h4 style="color: #123456;">Lớp NV-Xây dựng</h4></a></li>
                 <li><a href="#"><h4 style="color: #123456;">Tin tức</h4></a></li>
                 <li><a href="#"><h4 style="color: #123456;">Liên hệ</h4></a></li>
                 

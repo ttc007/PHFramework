@@ -9,13 +9,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="../../static/bootstrap/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../../static/css/home.css">
-    <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="../../ckeditor/ckeditor.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-default menu">
         <div class="container">
             <div class="navbar-header">
-              <a class="navbar-brand" href="admin.php">Admin</a>
+              <a class="navbar-brand" href="index.php">Admin</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav ul1">
@@ -32,9 +32,11 @@
                       $rows=$statement->fetchAll();
                       foreach ($rows as $value) {
                     ?>
-                    <li><a href="monhocDetail.php?id=<?php echo $value[0]; ?>"><?php echo $value[1]; ?></a></li>
+                    <li><a href="monhocdetail.php?id=<?php echo $value[0]; ?>"><?php echo $value[1]; ?></a></li>
                     <?php } ?>
                   </ul></li>
+                  <li><a href="danhsachdangki.php">Danh sách đăng kí học</a></li>
+                  <li><a href="tintuc.php">Tin tức</a></li>
               </ul>
               <form class="navbar-form navbar-left">
                 <div class="form-group">

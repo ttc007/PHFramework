@@ -98,7 +98,7 @@ $monhoc = getMonhoc($id);
 						      
 						    </div>
 						  </div>
-						<a href="editChuong.php?action=edit&id=<?php echo $chuyenmuc[0]; ?>"><button>Edit</button></a></td>
+						<a href="editchuong.php?action=edit&id=<?php echo $chuyenmuc[0]; ?>"><button>Edit</button></a></td>
 
 						<td><?php echo $chuyenmuc[2]; ?></td>
 						<td><?php echo $chuyenmuc[3]; ?></td>

@@ -1,5 +1,5 @@
 <?php 
-include 'data.php';
+include 'data2.php';
 function getMonhocs() {
 	global $db;
 	$q="SELECT * from monhoc";
@@ -121,3 +121,4 @@ function saveTracnghiem($id,$content,$daA,$daB,$daC,$daD,$daCX) {
 	$statement->bindValue(':daCX',$daCX);
 	$statement->execute();
 }
+?>

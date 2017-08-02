@@ -1,5 +1,5 @@
 <?php 
-include 'data.php';
+include 'data2.php';
 function getChuyenmuc() {
 	global $db;
 	$q="SELECT * from chuyenmuc";
@@ -41,4 +41,4 @@ function deleteChuyenmuc($id) {
 	$statement->execute();          
 }
 
-
+?>
