@@ -28,8 +28,12 @@ include 'layout.php';
     </a>
   </div>
             <?php
+
               include "../model/data.php";
               include "../model/tintucdata.php";
+              // include "../model/monhocData.php";
+              // include "../model/chuyenmucData.php";
+
               $action=filter_input(INPUT_GET, 'action');
               if ($action=="")$action=filter_input(INPUT_POST, 'action');
               if($action=="dangki"){
@@ -131,7 +135,7 @@ include 'layout.php';
 		    <div class="form-group">
 		      <label for="monhoc">Môn học</label>
 		      <select name="monhoc" id="monhoc" class="form-control">
-            <!-- <option>--Chọn--</option> -->
+            
             
             <?php
 
@@ -139,6 +143,7 @@ include 'layout.php';
                       $statement=$db->prepare($q);
                       $statement->execute();
                       $monhocs=$statement->fetchAll();
+            
               foreach ($monhocs as $value) {
             ?>
               <option value="<?php echo $value[1]?>"><?php echo $value[1]?></option>

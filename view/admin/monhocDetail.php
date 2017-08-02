@@ -1,6 +1,5 @@
 <?php
 include "admin.php";
-include "../../model/monhocData.php";
 
 $id = filter_input(INPUT_GET, 'id');
 if ($id=="") $id=filter_input(INPUT_POST, 'id');

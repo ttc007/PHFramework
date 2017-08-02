@@ -29,24 +29,12 @@
                 <li><a href="home.php"><h5 style="color: #123456;">Trang chủ</h5></a></li>
                 <li><a href="#"><h5 style="color: #123456;">Giới thiệu</h5 ></a></li>
                 <li><a href="chuongtrinhhoc.php?idChuong=2"><h5 style="color: #123456;">Chương trình đào tạo</h5></a></li>
-                <!-- <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><h4>Chương trình đào tạo</h4></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="chuongtrinhhoc.php">Luyện thi đại học</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Toán</a></li>
-                            <li><a href="#">Lý</a></li>
-                            <li><a href="#">Hóa</a></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="chuongtrinhhoc.php">Môn học cơ sở </a></li>
-                  </ul>
-                </li> -->
+                
                 <li><a href="lopnvxaydung.php"><h5 style="color: #123456;">Lớp NV-Xây dựng</h5></a></li>
                 <li><a href="tintuc.php"><h5 style="color: #123456;">Tin tức</h5></a></li>
                 <li><a href="#"><h5 style="color: #123456;">Liên hệ</h5></a></li>
                 <li><a href="diendan.php"><h5 style="color: #123456;">Diễn đàn</h5></a></li>
+
                 </ul>
               <form class="navbar-form navbar-left">
                 <div class="form-group">

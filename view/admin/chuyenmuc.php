@@ -1,8 +1,6 @@
 <?php
 include "admin.php";
 
-include ('../../model/data.php');
-include ('../../model/chuyenmucData.php');
 ?>
 <div class="container">
 	<h1>Chuyên mục management</h1>
@@ -15,7 +13,6 @@ include ('../../model/chuyenmucData.php');
 	  </div>
 
 		<?php
-			
 			global $db;
 			$action=filter_input(INPUT_GET, 'action');
 			if($action=="") $action=filter_input(INPUT_POST, 'action');

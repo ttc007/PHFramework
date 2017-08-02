@@ -1,7 +1,5 @@
 <?php
 include "admin.php";
-// include("../../model/data2.php");
-include "../../model/chuyenmucdata.php";
 
 ?>
 <div class="container">

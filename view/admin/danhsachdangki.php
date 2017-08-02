@@ -1,6 +1,6 @@
 <?php
 include "admin.php";
-include "../../model/dangkihocdata.php";
+include "../../model/dangkihocData.php";
 $action = filter_input(INPUT_GET, "action");
 $danhsachs=getDanhsachDangkis();
 if($action=="daxeplop") {
@@ -10,7 +10,9 @@ if($action=="daxeplop") {
     }
 ?>
 <div class="container">
+
 <h1 style="color: #123abc">Danh sách học viên đăng kí</h1>
+
 	<table class="table">
 		<tr>
 			<td>ID</td>

@@ -1,5 +1,6 @@
 <?php
 include "admin.php";
+
 include ("../../model/dangkihocdata.php");
 
     $danhsachs=getDangkihocNew();
@@ -15,6 +16,7 @@ include ("../../model/dangkihocdata.php");
 		<h1 style="color: #123abc">Welcom Admin!</h1>
 		<h4 style="color: #abc123">Hãy kiểm tra các thông tin học viên đăng kí mới</h4>
 		<h2 style="color: #123abc">Danh sách học viên đăng kí mới</h2>
+
 		<table class="table">
 		<tr>
 			<td>ID</td>
@@ -43,6 +45,7 @@ include ("../../model/dangkihocdata.php");
 			<td><?php echo $danhsach[7]?></td>
 			<td>Mới</td>
 			<td><a href="?action=daxem&id=<?php echo $danhsach[0]?>">Check</a></td>
+
 		</tr>
 		<?php
 			}
