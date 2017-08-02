@@ -5,7 +5,7 @@
   border: 3px double #fff">
       <div class="container">
         <h3>Copyright © 2017 - Tâm trí Việt Cồ</h3>
-        <h4>Liên hệ</h4>
+        <h4>Liên hệ Trần Mới</h4>
         Phone:0996593196<br>
         Email:
         Adress:
