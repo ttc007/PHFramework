@@ -12,7 +12,9 @@ include ("../../model/dangkihocdata.php");
 ?>
 <div class="container">
 	<div class="panel panel-info">
-		<h1>Danh sách đăng kí mới</h1>
+		<h1 style="color: #123abc">Welcom Admin!</h1>
+		<h4 style="color: #abc123">Hãy kiểm tra các thông tin học viên đăng kí mới</h4>
+		<h2 style="color: #123abc">Danh sách học viên đăng kí mới</h2>
 		<table class="table">
 		<tr>
 			<td>ID</td>

@@ -10,7 +10,7 @@ if($action=="daxeplop") {
     }
 ?>
 <div class="container">
-<h1>Danh sách học viên đăng kí</h1>
+<h1 style="color: #123abc">Danh sách học viên đăng kí</h1>
 	<table class="table">
 		<tr>
 			<td>ID</td>

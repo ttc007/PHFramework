@@ -37,6 +37,7 @@
                   </ul></li>
                   <li><a href="danhsachdangki.php">Danh sách đăng kí học</a></li>
                   <li><a href="tintuc.php">Tin tức</a></li>
+                  <li><a href="diendan.php">Diễn đàn</a></li>
               </ul>
               <form class="navbar-form navbar-left">
                 <div class="form-group">

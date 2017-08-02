@@ -1,5 +1,6 @@
 <?php
 include 'layout.php';
+
 ?>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
@@ -27,9 +28,8 @@ include 'layout.php';
     </a>
   </div>
             <?php
-              //include "../model/monhocData.php";
-              //include "../model/chuyenmucData.php";
               include "../model/data.php";
+              include "../model/tintucdata.php";
               $action=filter_input(INPUT_GET, 'action');
               if ($action=="")$action=filter_input(INPUT_POST, 'action');
               if($action=="dangki"){
@@ -81,15 +81,36 @@ include 'layout.php';
   		</div>
   		<div class="panel-body">
   			<h4>Bồi dưỡng văn hóa- Luyện thi đại học</h4>
-  			<a href="">Tin tuc 1</a>
+        <?php
+        $ds1=getDanhsachtintuc1();
+        foreach ($ds1 as $value) {
+        ?>
+            <a href="tintucdetail.php?id=<?php echo $value[0];?>"><?php echo $value[1]?></a><span class="pull-right"> Ngày đăng:<?php echo $value[4]?></span><br>
+        <?php
+        }
+        ?>
   		</div>
   		<div class="panel-body">
   			<h4>Lớp nghiệp vụ xây dựng</h4>
-  			<a href="">Tin tuc 1</a>
+  			<?php
+        $ds1=getDanhsachtintuc2();
+        foreach ($ds1 as $value) {
+        ?>
+            <a href="tintucdetail.php?id=<?php echo $value[0];?>"><?php echo $value[1]?></a><span class="pull-right"> Ngày đăng:<?php echo $value[4]?></span><br>
+        <?php
+        }
+        ?>
   		</div>
   		<div class="panel-body">
   			<h4>Xây dựng</h4>
-  			<a href="">Tin tuc 1</a>
+  			<?php
+        $ds1=getDanhsachtintuc3();
+        foreach ($ds1 as $value) {
+        ?>
+            <a href="tintucdetail.php?id=<?php echo $value[0];?>"><?php echo $value[1]?></a><span class="pull-right"> Ngày đăng:<?php echo $value[4]?></span><br>
+        <?php
+        }
+        ?>
   		</div>
   	</div>
   	<div class="col-md-4 pull-right" style="border: 1px solid #67edd2;margin-bottom: 50px;padding-bottom: 10px;">
@@ -118,8 +139,6 @@ include 'layout.php';
                       $statement=$db->prepare($q);
                       $statement->execute();
                       $monhocs=$statement->fetchAll();
-              //$xaydung=getChuyenmuc2();
-             // $monhocs=getMonhocRef($xaydung[0]);
               foreach ($monhocs as $value) {
             ?>
               <option value="<?php echo $value[1]?>"><?php echo $value[1]?></option>

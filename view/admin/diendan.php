@@ -1,6 +1,6 @@
 <?php
 include "admin.php";
-include ('../../model/tintucdata.php');
+include ('../../model/diendandata.php');
 $action=filter_input(INPUT_GET, 'action');
 $id=filter_input(INPUT_GET, 'id');
 if($action=="") $action=filter_input(INPUT_POST, 'action');
@@ -8,14 +8,14 @@ if($action=="add") {
 	$name=filter_input(INPUT_POST, 'name');
 	$content=filter_input(INPUT_POST, 'content');
 	$theloai=filter_input(INPUT_POST, 'theloai');
-	addtintuc($name,$content,$theloai);
-	header("Location:tintuc.php");
+	addchude($name,$content,$theloai);
+	header("Location:diendan.php");
 }
 if($action=="Save") {
 				$name=filter_input(INPUT_POST, 'name');
 				$content=filter_input(INPUT_POST, 'content');
 				$theloai=filter_input(INPUT_POST, 'theloai');
-				$q="UPDATE tintuc
+				$q="UPDATE chude
 				SET content = :content, name = :name,theloai=:theloai;
 				where id=:id";
 				$statement=$db->prepare($q);
@@ -24,21 +24,21 @@ if($action=="Save") {
 				$statement->bindValue(':content',$content);
 				$statement->bindValue(':theloai',$theloai);
 	            $statement->execute();
-	            header("Location:tintuc.php");
+	            header("Location:diendan.php");
 }
 if($action=="delete") {
 				$id=filter_input(INPUT_GET, 'id');
-				$q="DELETE FROM tintuc
+				$q="DELETE FROM chude
 					WHERE id=:id;";
 				$statement=$db->prepare($q);
 	            $statement->bindValue(':id',$id);
 	            $statement->execute();
-	            header("Location:tintuc.php");
+	            header("Location:diendan.php");
 }
 ?>
 <div class="container panel panel-info">
-<h1 style="text-align: center;">Tin tức Management</h1>
-<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Thêm tin tức</button>
+<h1 style="text-align: center;">Diễn đàn Management</h1>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Thêm chủ đề</button>
 	  <div id="demo" class="collapse">
 	    <div class="panel-body">
 		<form action="?action=add" method="post">
@@ -50,7 +50,7 @@ if($action=="delete") {
 			    CKEDITOR.replace('editor1');
 			</script>
 			<br><br>
-			Chọn chuyên mục của tin tức<br>
+			Chọn chuyên mục của chủ đềc<br>
 			<select name="theloai">
 				<option value="1">BDVH</option>
 				<option value="2">Lớp nghiệp vụ xây dựng</option>
@@ -62,9 +62,9 @@ if($action=="delete") {
 			</form>
 		</div>
 		</div>
-	<h3>Danh sách tin tức</h3>
+	<h3>Danh sách chủ đề</h3>
 		<?php
-			$q="SELECT * from tintuc";
+			$q="SELECT * from chude";
 			$statement=$db->prepare($q);
 			$statement->execute();
 			$rows=$statement->fetchAll();
@@ -88,7 +88,7 @@ if($action=="delete") {
 					<?php 
 						if(($action=="edit")&&($id==$monhoc[0])) {
 					?>
-						<form action="tintuc.php" method="post">
+						<form action="diendan.php" method="post">
 						<td><input type="text" name="name" value="<?php echo $monhoc[1]; ?>"></td>
 						<td><textarea name="content" placeholder="Đối với xây dựng" id="editor3" rows="10" cols="80">
 							<?php echo $monhoc[2]; ?></textarea>
@@ -105,7 +105,7 @@ if($action=="delete") {
 						<td><input type="submit" name="action" value="Save">
 						<input type="hidden" name="id" value="<?php echo $monhoc[0]; ?>">
 						</form>
-						<a href="tintuc.php">Cancel</a></td>
+						<a href="diendan.php">Cancel</a></td>
 					<?php
 						} else {
 					?>
@@ -121,7 +121,7 @@ if($action=="delete") {
 						      <div class="modal-content">
 						        <div class="modal-header">
 						          <button type="button" class="close" data-dismiss="modal">&times;</button>
-						          <h4 class="modal-title">Bạn có chắc muốn xóa tin tức này</h4>
+						          <h4 class="modal-title">Bạn có chắc muốn xóa chủ đề này</h4>
 						        </div>
 						        <div class="modal-body">
 						          <p><?php echo $monhoc[1]; ?></p>
