@@ -47,7 +47,15 @@ if($action=="delete") {
 			Nội dung<br>
 			<textarea name="content" placeholder="Đối với xây dựng" id="editor1" rows="10" cols="80"></textarea>
 			<script>
-			    CKEDITOR.replace('editor1');
+			    CKEDITOR.replace('editor1',{
+			    	filebrowserBrowseUrl : '../../ckfinder/ckfinder.html',
+			filebrowserImageBrowseUrl : '../../ckfinder/ckfinder.html?type=Images',
+			filebrowserFlashBrowseUrl : '../../ckfinder/ckfinder.html?type=Flash',
+			filebrowserUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+			filebrowserImageUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+			filebrowserFlashUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+			
+			    } );
 			</script>
 			<br><br>
 			Chọn chuyên mục của tin tức<br>
@@ -93,7 +101,15 @@ if($action=="delete") {
 						<td><textarea name="content" placeholder="Đối với xây dựng" id="editor3" rows="10" cols="80">
 							<?php echo $monhoc[2]; ?></textarea>
 							<script>
-							    CKEDITOR.replace( 'editor3' );
+							    CKEDITOR.replace( 'editor3',{
+			    	filebrowserBrowseUrl : '../../ckfinder/ckfinder.html',
+			filebrowserImageBrowseUrl : '../../ckfinder/ckfinder.html?type=Images',
+			filebrowserFlashBrowseUrl : '../../ckfinder/ckfinder.html?type=Flash',
+			filebrowserUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+			filebrowserImageUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+			filebrowserFlashUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+			
+			    }  );
 							</script>
 							</td>
 						<td><select name="theloai">

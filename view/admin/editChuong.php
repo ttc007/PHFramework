@@ -33,13 +33,29 @@ if($action=="Save") {
 			<input type="hidden" name="id" value="<?php echo $chuong[0]; ?>">
 			<textarea name="content" id="editor1" rows="10" cols="80"><?php echo $chuong[2]; ?></textarea>
 			<script>
-			    CKEDITOR.replace( 'editor1');
+			    CKEDITOR.replace( 'editor1',{
+			    	filebrowserBrowseUrl : '../../ckfinder/ckfinder.html',
+			filebrowserImageBrowseUrl : '../../ckfinder/ckfinder.html?type=Images',
+			filebrowserFlashBrowseUrl : '../../ckfinder/ckfinder.html?type=Flash',
+			filebrowserUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+			filebrowserImageUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+			filebrowserFlashUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+			
+			    } );
 			</script>
 			<br><br>
 			Bài tập<br>
 			<textarea name="baitap" id="editor3" rows="10" cols="80"><?php echo $chuong[3]; ?></textarea>
 			<script>
-			    CKEDITOR.replace( 'editor3');
+			    CKEDITOR.replace( 'editor3',{
+			    	filebrowserBrowseUrl : '../../ckfinder/ckfinder.html',
+			filebrowserImageBrowseUrl : '../../ckfinder/ckfinder.html?type=Images',
+			filebrowserFlashBrowseUrl : '../../ckfinder/ckfinder.html?type=Flash',
+			filebrowserUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+			filebrowserImageUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+			filebrowserFlashUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+			
+			    } );
 			</script>
 			<br>
 			<input type="submit" name="action" value="Save">

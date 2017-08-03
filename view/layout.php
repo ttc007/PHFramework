@@ -27,12 +27,12 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav ul1">
                 <li><a href="home.php"><h5 style="color: #123456;">Trang chủ</h5></a></li>
-                <li><a href="#"><h5 style="color: #123456;">Giới thiệu</h5 ></a></li>
+                <li><a href="gioithieu.php"><h5 style="color: #123456;">Giới thiệu</h5 ></a></li>
                 <li><a href="chuongtrinhhoc.php?idChuong=2"><h5 style="color: #123456;">Chương trình đào tạo</h5></a></li>
                 
                 <li><a href="lopnvxaydung.php"><h5 style="color: #123456;">Lớp NV-Xây dựng</h5></a></li>
                 <li><a href="tintuc.php"><h5 style="color: #123456;">Tin tức</h5></a></li>
-                <li><a href="#"><h5 style="color: #123456;">Liên hệ</h5></a></li>
+                <li><a href="lienhe.php"><h5 style="color: #123456;">Liên hệ</h5></a></li>
                 <li><a href="diendan.php"><h5 style="color: #123456;">Diễn đàn</h5></a></li>
 
                 </ul>

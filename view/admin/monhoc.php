@@ -28,13 +28,29 @@ include "admin.php";
 			Thông tin định mức<br>
 			<textarea name="thongtindinhmuc" placeholder="Đối với xây dựng" id="editor1" rows="10" cols="80"></textarea>
 			<script>
-			    CKEDITOR.replace( 'editor1' );
+			    CKEDITOR.replace( 'editor1',{
+			    	filebrowserBrowseUrl : '../../ckfinder/ckfinder.html',
+			filebrowserImageBrowseUrl : '../../ckfinder/ckfinder.html?type=Images',
+			filebrowserFlashBrowseUrl : '../../ckfinder/ckfinder.html?type=Flash',
+			filebrowserUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+			filebrowserImageUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+			filebrowserFlashUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+			
+			    } );
 			</script>
 			<br><br>
 			Phần mềm<br>
 			<textarea name="phanmem" placeholder="Đối với xây dựng" placeholder="Đối với xây dựng" id="editor2" rows="10" cols="80"></textarea>
 			<script>
-			    CKEDITOR.replace( 'editor2' );
+			    CKEDITOR.replace( 'editor2',{
+			    	filebrowserBrowseUrl : '../../ckfinder/ckfinder.html',
+			filebrowserImageBrowseUrl : '../../ckfinder/ckfinder.html?type=Images',
+			filebrowserFlashBrowseUrl : '../../ckfinder/ckfinder.html?type=Flash',
+			filebrowserUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+			filebrowserImageUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+			filebrowserFlashUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+			
+			    }  );
 			</script>
 			<br><br>
 			<button>Add</button>
@@ -146,13 +162,29 @@ include "admin.php";
 							<td><textarea name="thongtindinhmuc" placeholder="Đối với xây dựng" id="editor3" rows="10" cols="80">
 							<?php echo $monhoc[3]; ?></textarea>
 							<script>
-							    CKEDITOR.replace( 'editor3' );
+							    CKEDITOR.replace( 'editor3',{
+			    	filebrowserBrowseUrl : '../../ckfinder/ckfinder.html',
+			filebrowserImageBrowseUrl : '../../ckfinder/ckfinder.html?type=Images',
+			filebrowserFlashBrowseUrl : '../../ckfinder/ckfinder.html?type=Flash',
+			filebrowserUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+			filebrowserImageUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+			filebrowserFlashUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+			
+			    }  );
 							</script>
 							</td>
 							<td><textarea name="phanmem" placeholder="Đối với xây dựng" id="editor4" rows="10" cols="80">
 							<?php echo $monhoc[4]; ?></textarea>
 								<script>
-							    CKEDITOR.replace( 'editor4' );
+							    CKEDITOR.replace( 'editor4',{
+			    	filebrowserBrowseUrl : '../../ckfinder/ckfinder.html',
+			filebrowserImageBrowseUrl : '../../ckfinder/ckfinder.html?type=Images',
+			filebrowserFlashBrowseUrl : '../../ckfinder/ckfinder.html?type=Flash',
+			filebrowserUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+			filebrowserImageUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+			filebrowserFlashUploadUrl : '../../ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+			
+			    }  );
 								</script>
 							</td>
 						<td><input type="submit" name="action" value="Save">

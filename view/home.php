@@ -31,8 +31,6 @@ include 'layout.php';
 
               include "../model/data.php";
               include "../model/tintucdata.php";
-              // include "../model/monhocData.php";
-              // include "../model/chuyenmucData.php";
 
               $action=filter_input(INPUT_GET, 'action');
               if ($action=="")$action=filter_input(INPUT_POST, 'action');
